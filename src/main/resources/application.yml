@@ -1,0 +1,41 @@
+spring:
+  sql:
+    init:
+      mode: always
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+  jpa:
+    defer-datasource-initialization: true
+    spring.jpa.database-platform: org.hibernate.dialect.H2Dialect
+    properties:
+      hibernate.transaction.jta.platform: org.hibernate.service.jta.platform.internal.NoJtaPlatform
+  load-time-weaver:
+    enabled: true
+  datasource:
+    initialization-mode: always
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  hibernate:
+    ddl-auto: update
+  show-sql: true
+server:
+  port: 8081
+springdoc:
+  enable-native-support=true:
+  api-docs:
+    path: /api-docs # Change the OpenAPI spec endpoint (default is /v3/api-docs)
+  swagger-ui:
+    path: /swagger-ui  # Change Swagger UI path (default is /swagger-ui.html)
+    display-query-params: true # Optionally show query parameters in the Swagger UI
+
+
+logging:
+  level:
+    org.springdoc: DEBUG   # Set log level to DEBUG for Springdoc OpenAPI
+    org.springdoc.webmvc: DEBUG         # For web MVC related components (UI, endpoints)
+    org.springdoc.api: DEBUG
+

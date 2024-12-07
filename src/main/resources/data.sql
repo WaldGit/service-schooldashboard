@@ -1,0 +1,15 @@
+
+DROP TABLE IF EXISTS student;
+CREATE TABLE IF NOT EXISTS student (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    birthday DATE,
+    class_id BIGINT
+);
+
+CREATE TABLE IF NOT EXISTS school_class (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255) NOT NULL
+);
+
+SELECT * FROM student;
