@@ -41,7 +41,7 @@ public class DemoApplication {
 
 			SchoolClass schoolClass = schoolClassService.createClass("Class A");
 
-			schoolClassService.addStudentToClass(schoolClass.getId(), "Alice");
+			schoolClassService.addStudentToClass(schoolClass.getId(), "Alice",  LocalDate.of(2024,1,1));
 
 
 			// Optionally, print out all students

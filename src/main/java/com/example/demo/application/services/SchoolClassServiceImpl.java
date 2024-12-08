@@ -8,6 +8,7 @@ import com.example.demo.ports.out.StudentRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -33,10 +34,10 @@ public class SchoolClassServiceImpl implements SchoolClassService {
     }
 
     @Transactional
-    public Student addStudentToClass(int classId, String studentName) {
+    public Student addStudentToClass(int classId, String studentName, LocalDate birthDay) {
         SchoolClass schoolClass = schoolClassRepository.findById(classId)
                 .orElseThrow(() -> new RuntimeException("Class not found"));
-        Student student = new Student(studentName);
+        Student student = new Student(studentName,birthDay);
         schoolClass.addStudent(student);
         return studentRepository.save(student);
     }

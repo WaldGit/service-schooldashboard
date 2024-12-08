@@ -37,7 +37,7 @@ public class SchoolClassController {
     public ResponseEntity<Student> addStudentToClass(
             @PathVariable int classId,
             @RequestBody StudentRequest request) {
-        Student student = schoolClassService.addStudentToClass(classId, request.getName());
+        Student student = schoolClassService.addStudentToClass(classId, request.getName(), request.getBirthday());
         return ResponseEntity.ok(student);
     }
 

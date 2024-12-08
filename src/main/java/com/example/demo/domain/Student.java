@@ -25,9 +25,11 @@ public class Student {
     public Student() {
     }
 
-    public Student(String studentName) {
+    public Student(String studentName, LocalDate birthDay) {
         this.name = studentName;
+        this.birthday = birthDay;
     }
+
 
     @Override
     public String toString() {
